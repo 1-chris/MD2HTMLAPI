@@ -23,7 +23,7 @@ namespace MD2HTMLAPI.FUNCTION
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
             if (req.Body != null)
-                response.WriteStringAsync(Markdig.Markdown.ToHtml(req.Body.ToString()));
+                response.WriteString(Markdig.Markdown.ToHtml(req.Body.ToString()));
 
             return response;
         }
