@@ -21,9 +21,10 @@ namespace MD2HTMLAPI.FUNCTION
 
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+            string? body = req.ReadAsString();
 
-            if (req.Body != null)
-                response.WriteString(Markdig.Markdown.ToHtml(req.Body.ToString()));
+            if (body != null)
+                response.WriteString(Markdig.Markdown.ToHtml(body));
 
             return response;
         }
